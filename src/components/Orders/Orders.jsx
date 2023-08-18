@@ -21,8 +21,8 @@ const Orders = () => {
     }
 
     return (
-        <div className='shop-container'>
-            <div className='review-container'>
+        <div className='flex justify-center mt-10'>
+            <div className='me-10'>
                 {
                     cart.map(product => <ReviewItem
                         key={product.id}
@@ -31,7 +31,7 @@ const Orders = () => {
                     ></ReviewItem>)
                 }
             </div>
-            <div className='cart-container'>
+            <div className='absolute right-10'>
                 <Cart
                     cart={cart}
                     handleClearCart={handleClearCart}
@@ -42,6 +42,7 @@ const Orders = () => {
                 </Cart>
             </div>
         </div>
+
     );
 };
 

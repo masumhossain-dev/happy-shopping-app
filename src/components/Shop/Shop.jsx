@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
-import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
-import './Shop.css';
-import { Link } from 'react-router-dom';
 import img1 from '../../images/carousel/img-1.jpg';
 import img2 from '../../images/carousel/img-2.jpg';
 import img3 from '../../images/carousel/img-3.jpg';
@@ -48,15 +45,10 @@ const Shop = () => {
         setCart(newCart);
         addToDb(product.id)
     }
-
-    const handleClearCart = () => {
-        setCart([]);
-        deleteShoppingCart();
-    }
     return (
         <div>
-            <div className='flex justify-left'>
-                <div className="grid grid-cols-4 gap-16 mt-8 ms-8 me-12">
+            <div className='flex justify-center'>
+                <div className="grid grid-cols-4 gap-16 mt-2 ms-8 me-12">
                     {
                         products.map(product => <Product
                             key={product.id}
@@ -65,7 +57,7 @@ const Shop = () => {
                         ></Product>)
                     }
                 </div>
-                <div className="mt-8">
+                {/* <div className="mt-8">
                     <Cart
                         cart={cart}
                         handleClearCart={handleClearCart}
@@ -74,7 +66,7 @@ const Shop = () => {
                             <button className='btn-proceed'>Review Order</button>
                         </Link>
                     </Cart>
-                </div>
+                </div> */}
             </div>
         </div>
     );

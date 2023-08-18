@@ -1,6 +1,6 @@
 .review-item {
     width: 571px;
-    border: 1px solid #95A0A7;
+    border: 2px solid rgb(76, 7, 236);
     border-radius: 8px;
     margin-bottom: 25px;
     padding: 8px 25px 8px 8px;
@@ -20,7 +20,7 @@
 }
 
 
-.review-details p{
+.review-details p {
     margin: 0 15px;
 }
 
@@ -30,12 +30,12 @@
     border-radius: 6px;
 }
 
-.orange-text{
+.orange-text {
     color: #FF9900;
 }
 
 /* delete button styles */
-.btn-delete{
+.btn-delete {
     height: 55px;
     width: 55px;
     border-radius: 50%;
@@ -44,7 +44,8 @@
     justify-content: center;
     align-items: center;
 }
-.delete-icon{
+
+.delete-icon {
     color: #EB5757;
     font-size: 27px;
 }

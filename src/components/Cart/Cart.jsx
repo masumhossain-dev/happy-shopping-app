@@ -2,8 +2,9 @@ import React from 'react';
 import './Cart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
-const Cart = ({ cart, handleClearCart, children }) => {
+const Cart = ({ cart, handleClearCart }) => {
     let totalPrice = 0;
     let totalShipping = 0;
     let quantity = 0;
@@ -17,7 +18,7 @@ const Cart = ({ cart, handleClearCart, children }) => {
     const grandTotal = totalPrice + totalShipping + tax;
 
     return (
-        <div className='w-96 text-white text-2xl cart-color p-5 rounded-lg sticky top-8'>
+        <div className='w-96 text-2xl cart-color p-5 rounded-lg'>
             <h4 className='text-center text-3xl font-bold mb-5'>Order Summary</h4>
             <p className='mb-2.5'>Selected Items: {quantity}</p>
             <p className='mb-2.5'>Total Price: ${totalPrice}</p>
@@ -28,7 +29,6 @@ const Cart = ({ cart, handleClearCart, children }) => {
                 <span>Clear Cart </span>
                 <FontAwesomeIcon icon={faTrashAlt} />
             </button>
-            {children}
         </div>
     );
 };
