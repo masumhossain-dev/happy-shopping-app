@@ -1,13 +1,15 @@
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { Outlet } from 'react-router-dom';
 
-const Home = () => {
+const Main = () => {
     return (
         <div>
             <Header></Header>
             <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };
 
-export default Home;
+export default Main;

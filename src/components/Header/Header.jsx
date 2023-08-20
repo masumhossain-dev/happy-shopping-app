@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -23,14 +25,15 @@ const Header = () => {
         <nav className="navbar bg-primary text-white flex justify-center h-20">
             <Link to='/'><h1 className='text-2xl font-bold pe-10 border-r-2'>HAPPY MART</h1></Link>
             <div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl ms-6">Shop</Link>
-                <Link to="/orders" className="btn btn-ghost normal-case text-xl">Orders</Link>
-                <Link to="/review" className="btn btn-ghost normal-case text-xl">Review</Link>
-                <Link to="/inventory" className="btn btn-ghost normal-case text-xl">Inventory</Link>
+                <Link to="/shop" className="btn btn-ghost normal-case text-lg ms-6">Shop</Link>
+                <Link to="/orders" className="btn btn-ghost normal-case text-lg">Orders</Link>
+                <Link to="/review" className="btn btn-ghost normal-case text-lg">Review</Link>
+                <Link to="/inventory" className="btn btn-ghost normal-case text-lg">Inventory</Link>
             </div>
             <div>
                 <button className="btn btn-outline btn-accent me-5 ms-6 text-lg"><Link to="/login">Login</Link></button>
                 <button className="btn glass text-lg"><Link to="/register">Register</Link></button>
+                <button className='btn text-white rounded-full ms-5'><Link to='/orders' className='text-xl'><FontAwesomeIcon icon={faCartShopping} style={{ color: "red", }} /></Link></button>
             </div>
 
             <div className='absolute right-20'>

@@ -8,13 +8,6 @@
     align-items: center;
 }
 
-.review-item .product-title {
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 25px;
-    letter-spacing: 0.0015em;
-}
-
 .review-details {
     flex-grow: 1;
 }
