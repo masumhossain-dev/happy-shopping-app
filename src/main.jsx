@@ -1,11 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Shop from './components/Shop/Shop';
 import Orders from './components/Orders/Orders';
 import Inventory from './components/Inventory/Inventory';
@@ -16,6 +12,8 @@ import Main from './components/Layout/Main';
 import Home from './components/Home/Home';
 import Review from './components/Review/Review';
 import AuthProvider from './providers/AuthProvider';
+import PrivateRout from './components/PrivateRout/PrivateRout';
+import Checkout from './components/Checkout/Checkout';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/checkout',
+        element: <PrivateRout><Checkout></Checkout></PrivateRout>
       }
     ]
   }

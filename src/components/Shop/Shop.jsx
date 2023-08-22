@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
+import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 import Product from '../Product/Product';
 import img1 from '../../images/carousel/img-1.jpg';
 import img2 from '../../images/carousel/img-2.jpg';
@@ -47,7 +47,7 @@ const Shop = () => {
     }
     return (
         <div>
-            <div className='flex justify-center'>
+            <div className='flex justify-center mt-10'>
                 <div className="grid grid-cols-4 gap-16 mt-2 ms-8 me-12">
                     {
                         products.map(product => <Product
@@ -57,16 +57,6 @@ const Shop = () => {
                         ></Product>)
                     }
                 </div>
-                {/* <div className="mt-8">
-                    <Cart
-                        cart={cart}
-                        handleClearCart={handleClearCart}
-                    >
-                        <Link className='proceed-link' to="/orders">
-                            <button className='btn-proceed'>Review Order</button>
-                        </Link>
-                    </Cart>
-                </div> */}
             </div>
         </div>
     );

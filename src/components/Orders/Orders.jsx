@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Cart from '../Cart/Cart';
 import { Link, useLoaderData } from 'react-router-dom';
 import ReviewItem from '../ReviewItem/ReviewItem';
-import './Orders.css';
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 
 const Orders = () => {
@@ -21,8 +20,9 @@ const Orders = () => {
     }
 
     return (
-        <div className='flex justify-center mt-10'>
-            <div className='me-10'>
+        <div className='flex justify-center min-h-screen bg-base-200 pt-10'>
+
+            <div div className='me-10' >
                 {
                     cart.map(product => <ReviewItem
                         key={product.id}
@@ -30,7 +30,7 @@ const Orders = () => {
                         handleRemoveFromCart={handleRemoveFromCart}
                     ></ReviewItem>)
                 }
-            </div>
+            </div >
             <div className='absolute right-10'>
                 <Cart
                     cart={cart}
@@ -41,7 +41,7 @@ const Orders = () => {
                     </Link>
                 </Cart>
             </div>
-        </div>
+        </div >
 
     );
 };

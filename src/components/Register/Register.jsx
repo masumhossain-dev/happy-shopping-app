@@ -1,17 +1,20 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import google from '../../images/auth media icon/google.png';
 import facebook from '../../images/auth media icon/facebook.png'
 import { UserContext } from '../../providers/AuthProvider';
+import { Navigate } from 'react-router-dom';
 
 const Register = () => {
-    const { user, createUser, setUser } = useContext(UserContext)
+    const { googleUserCreator, facebookUserCreator, createUser, user } = useContext(UserContext)
     const [error, setError] = useState('')
+    const [showPass, setShowPass] = useState(false);
+
     const handleRegister = event => {
         event.preventDefault();
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        const confirmPass = event.target.confPass.value;
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPass = form.confPass.value;
         setError('')
 
         if (password !== confirmPass) {
@@ -23,13 +26,35 @@ const Register = () => {
 
         createUser(email, password)
             .then(res => {
-                setUser(res)
+                form.reset();
             })
             .catch(err => {
-                setError('Email Already Used')
+                setError(err.message)
             })
     }
-    console.log(user)
+    const googleSignIn = () => {
+        googleUserCreator()
+            .then(res => {
+                console.log(res.user)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    const facebookSignIn = () => {
+        facebookUserCreator()
+            .then(res => {
+                console.log(res.user)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    if (user) {
+        return <Navigate to='/'></Navigate>
+    }
 
     return (
         <div>
@@ -50,20 +75,26 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="Password" name='password' className="input input-bordered" required />
+                                <input type={showPass ? 'text' : 'password'} placeholder="Password" name='password' className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="password" name='confPass' placeholder="Confirm password" className="input input-bordered" required />
+                                <input type={showPass ? 'text' : 'password'} name='confPass' placeholder="Confirm password" className="input input-bordered" required />
+                                <div className="form-control w-52">
+                                    <label className="cursor-pointer label">
+                                        <input onClick={() => { setShowPass(!showPass) }} type="checkbox" className="toggle toggle-primary toggle-xs" />
+                                    </label>
+                                </div>
+
                                 <p className='text-error text-center'>{error}</p>
                             </div>
                             <p className='text-center text-xl'>or</p>
                             <button></button>
                             <div className='flex justify-around'>
-                                <button><img src={google} alt="" /></button>
-                                <button><img src={facebook} alt="" /></button>
+                                <button onClick={googleSignIn}><img src={google} alt="" /></button>
+                                <button onClick={facebookSignIn}><img src={facebook} alt="" /></button>
                             </div>
                             <div className="form-control mt-6">
                                 <button type='submit' className="btn btn-primary">Register</button>

@@ -18,17 +18,42 @@ const Cart = ({ cart, handleClearCart }) => {
     const grandTotal = totalPrice + totalShipping + tax;
 
     return (
-        <div className='w-96 text-2xl cart-color p-5 rounded-lg'>
-            <h4 className='text-center text-3xl font-bold mb-5'>Order Summary</h4>
+        <div className='
+        w-96 
+        text-2xl 
+        cart-color 
+        p-5 
+        rounded-lg
+        '>
+            <h4 className='
+            text-center 
+            text-3xl 
+            font-bold 
+            mb-5
+            '>Order Summary</h4>
             <p className='mb-2.5'>Selected Items: {quantity}</p>
             <p className='mb-2.5'>Total Price: ${totalPrice}</p>
             <p className='mb-2.5'>Shipping: ${totalShipping}</p>
             <p className='mb-2.5'>Tax: ${tax.toFixed(2)}</p>
             <h6 className='font-bold'>Grand Total: ${grandTotal.toFixed(2)} </h6>
-            <button onClick={handleClearCart} className='btn btn-error text-white block mx-auto mt-10'>
+            <button onClick={handleClearCart} className='
+            btn
+            btn-error
+            text-white 
+            block 
+            mx-auto 
+            mt-10
+            '>
                 <span>Clear Cart </span>
                 <FontAwesomeIcon icon={faTrashAlt} />
             </button>
+            <button className='
+            btn 
+            w-80 
+            btn-primary 
+            block 
+            mx-auto 
+            mt-10'><Link to='/checkout'>Checkout</Link></button>
         </div>
     );
 };
